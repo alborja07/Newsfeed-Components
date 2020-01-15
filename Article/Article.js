@@ -127,8 +127,10 @@ function createPanel(title, date, firstParagraph, secondParagraph, thirdParagrap
   paragraph1.textContent = firstParagraph;
   paragraph2.textContent = secondParagraph;
   paragraph3.textContent = thirdParagraph;
+  button.textContent = button;
 
   article.append(heading);
+  article.append(date);
   article.append(paragraph1);
   article.append(paragraph2);
   article.append(paragraph3);
@@ -139,10 +141,10 @@ function createPanel(title, date, firstParagraph, secondParagraph, thirdParagrap
 
   button.addEventListener('click', event => {
     article.classList.toggle('article-open');
-      // buttonClose.classList.toggle('hide-btn');
-      // // 2. change the visibility of content with our .toggle-on class
+      button.classList.toggle('hide-btn');
+      // 2. change the visibility of content with our .toggle-on class
       
-      // panelContent.classList.toggle('toggle-on')
+      panelContent.classList.toggle('toggle-on')
   })
   return article;
 } 
@@ -155,3 +157,4 @@ data.forEach(data => {
   console.log(article, data)
   article.append(createPanel(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
 })
+

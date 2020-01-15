@@ -11,6 +11,9 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
+  transition-property: height;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 .article h2 {
   font-size: 28px;

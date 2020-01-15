@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'New Article',
+    date: 'Jan 15, 2020',
+  firstParagraph: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis quod nesciunt expedita ipsum, omnis in placeat culpa vitae magni cupiditate deleniti optio officiis, facere, tempora tenetur obcaecati numquam. Velit, earum.   `,
+
+    secondParagraph: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis quod nesciunt expedita ipsum, omnis in placeat culpa vitae magni cupiditate deleniti optio officiis, facere, tempora tenetur obcaecati numquam. Velit, earum. `,
+
+    thirdParagraph: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis quod nesciunt expedita ipsum, omnis in placeat culpa vitae magni cupiditate deleniti optio officiis, facere, tempora tenetur obcaecati numquam. Velit, earum.`
   }
 ];
 
@@ -127,7 +136,7 @@ function createPanel(title, date, firstParagraph, secondParagraph, thirdParagrap
   paragraph1.textContent = firstParagraph;
   paragraph2.textContent = secondParagraph;
   paragraph3.textContent = thirdParagraph;
-  button.textContent = button;
+  button.textContent = 'Expand';
 
   article.append(heading);
   article.append(date);
@@ -141,10 +150,7 @@ function createPanel(title, date, firstParagraph, secondParagraph, thirdParagrap
 
   button.addEventListener('click', event => {
     article.classList.toggle('article-open');
-      button.classList.toggle('hide-btn');
-      // 2. change the visibility of content with our .toggle-on class
       
-      panelContent.classList.toggle('toggle-on')
   })
   return article;
 } 
@@ -154,7 +160,6 @@ function createPanel(title, date, firstParagraph, secondParagraph, thirdParagrap
 const article = document.querySelector('.articles');
 
 data.forEach(data => {
-  console.log(article, data)
   article.append(createPanel(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
 })
 

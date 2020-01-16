@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'New Article',
+    date: 'Jan 15, 2020',
+  firstParagraph: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis quod nesciunt expedita ipsum, omnis in placeat culpa vitae magni cupiditate deleniti optio officiis, facere, tempora tenetur obcaecati numquam. Velit, earum.   `,
+
+    secondParagraph: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis quod nesciunt expedita ipsum, omnis in placeat culpa vitae magni cupiditate deleniti optio officiis, facere, tempora tenetur obcaecati numquam. Velit, earum. `,
+
+    thirdParagraph: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis quod nesciunt expedita ipsum, omnis in placeat culpa vitae magni cupiditate deleniti optio officiis, facere, tempora tenetur obcaecati numquam. Velit, earum.`
   }
 ];
 
@@ -99,6 +108,7 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
+
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
@@ -112,3 +122,44 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+function createPanel(title, date, firstParagraph, secondParagraph, thirdParagraph){
+  const article = document.createElement('div');
+  const heading = document.createElement('h2');
+  const paragraph1 = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p');
+  const button = document.createElement('span');
+
+  heading.textContent = title;
+  paragraph1.textContent = firstParagraph;
+  paragraph2.textContent = secondParagraph;
+  paragraph3.textContent = thirdParagraph;
+  button.textContent = 'Expand';
+
+  article.append(heading);
+  article.append(date);
+  article.append(paragraph1);
+  article.append(paragraph2);
+  article.append(paragraph3);
+  article.append(button);
+
+  article.classList.add('article');
+  button.classList.add('expandButton');
+
+  button.addEventListener('click', event => {
+    article.classList.toggle('article-open');
+      
+  })
+  return article;
+} 
+
+
+// parent
+const article = document.querySelector('.articles');
+
+data.forEach(data => {
+  article.append(createPanel(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
+
